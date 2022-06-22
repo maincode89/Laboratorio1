@@ -1,0 +1,177 @@
+@font-face { 
+  font-family: Yanone Kaffeesatz; 
+    src: url('../fonts/YanoneKaffeesatz-Regular.eot'); 
+    src: local("Yanone Kaffeesatz"), url('../fonts/YanoneKaffeesatz-Regular.ttf'); 
+} 
+html { 
+  height: 100%;
+}
+* { 
+  padding: 0;
+  margin: 0;
+}
+article, aside, figure, footer, header, hgroup, nav, section { 
+  display:block;
+}
+body { 
+  font: normal .8em arial, sans-serif;
+  background: url(../images/sun.png) top left no-repeat, url(../images/grass.png) repeat-x bottom, url(../images/back.png) repeat-x;
+  color: #555;
+  padding: 10px;
+  font-family: Yanone Kaffeesatz;
+  font-size: 12px;
+  line-height: 15px;
+}
+h1 {
+  color: #E5017D;
+  letter-spacing: 0.5px;
+  font-size: 25px;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h2 {
+  color: #80e804;
+  font-size: 20px;
+  line-height: 23px;
+  margin: 0;
+}
+.container {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+}
+nav {
+  margin: 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  background-color: #53C7FD;
+}
+nav .nav-item .nav-link {
+  color: #fff;
+  font-size: 20px;
+  line-height: 23px;
+}
+.dropdown-menu {
+  background-color: #53C7FD;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+}
+.dropdown-menu .dropdown-item {
+  color: #fff;
+}
+.dropdown-menu .dropdown-item:hover {
+  color: #E5017D;
+  background-color: #53C7FD;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+  color: #E5017D;
+}
+.navbar-dark .navbar-toggler {
+  color: #fff;
+  border-color: #fff;
+}
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 255%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.main {
+  padding: 20px 0 0;
+}
+.imgBorder {
+  border: 1px solid #ccc;
+  max-width: 235px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+article {
+  padding: 0 15px;
+}
+.articleList {
+  padding-left: 30px;
+}
+.articleList li {
+  padding-left: 5px;
+}
+.asidesContainer aside {
+  background-color: #F5FEFF;
+  border: 1px solid #C9E5E9;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 0 0 20px ;
+}
+.asidesContainer aside .content {
+  padding: 10px 0 0;
+}
+.asidesContainer aside .content a {
+  color: #19CFDE;
+  margin: 10px 0 0;
+}
+.imgContent {
+  margin-bottom: 20px;
+}
+article.noticia {
+  background-color: #F5FEFF ;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #C9E5E9;
+  margin: 0 0 20px;
+}
+.table-striped>thead {
+  background-color: #E5017D;
+  color: #fff;
+}
+thead th.headertable {
+  background-color: #53C7FD;
+  font-size: 20px;
+  line-height: 23px;
+  border-bottom: 5px solid #fff;
+}
+.table>:not(:first-child) {
+  border: none;
+}
+.table>:not(caption)>*>* {
+  border: none;
+  padding: 5px;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: #F5FEFF;
+}
+.perro {
+  max-width: 100px;
+}
+form {
+  margin: 10px 0 20px;
+}
+.btn-primary {
+  background-color: #E5017D;
+  border-color: #E5017D;
+}
+footer {
+  padding: 30px 0;
+  border-radius: 0 0 10px 10px;
+  background-color: #53C7FD;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fff;
+}
+footer a {
+  color: #fff;
+}
+footer p {
+  margin: 10px 0 0;
+}
+@media (min-width: 992px) {
+  .container  {
+      max-width: 850px;
+  }
+  nav .nav-item {
+    margin-right: 25px;
+  }
+  .imgBorder {
+    border: 1px solid #ccc;
+    max-width: 100%;
+  }
+}
