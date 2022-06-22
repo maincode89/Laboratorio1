@@ -2,13 +2,11 @@
   font-family: Yanone Kaffeesatz; 
     src: url('../fonts/YanoneKaffeesatz-Regular.eot'); 
     src: local("Yanone Kaffeesatz"), url('../fonts/YanoneKaffeesatz-Regular.ttf'); 
-} 
-html { 
-  height: 100%;
 }
 * { 
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 article, aside, figure, footer, header, hgroup, nav, section { 
   display:block;
@@ -37,9 +35,12 @@ h2 {
   margin: 0;
 }
 .container {
+  position: relative;
   background-color: #fff;
   border-radius: 15px;
   padding: 20px;
+  border: initial;
+  overflow: overlay;
 }
 nav {
   margin: 10px 0 0;
