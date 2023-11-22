@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+    color: #f18a6b;
+  }
+  
+  a:hover {
+    color: #822179;
+    text-decoration: none;
+  }
+
+  .mainContent {
+    padding: 25px 25px;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .mainContent {
+      padding: 0 50px;
+    }
+  }
