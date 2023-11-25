@@ -363,6 +363,17 @@ section {
   }
 }
 
+
+.btn {
+  background: #f18a6b;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  width: 300px;
+}
+
 /*--------------------------------------------------------------
 # productosVentas
 --------------------------------------------------------------*/
@@ -373,6 +384,7 @@ section {
 
 .productosVentas .info {
   background: #fff;
+  margin-bottom: 30px;
 }
 
 .productosVentas .info.hours {
