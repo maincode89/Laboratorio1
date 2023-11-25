@@ -412,6 +412,13 @@ section {
   color: #202020;
 }
 
+.productosVentas .info table.resultados td {
+  text-align: left;
+  border: 1px solid #000000;
+  padding: 10px;
+  color: #202020;
+}
+
 @media (min-width: 768px) {
 .productosVentas .info.hours {
     margin:0;
@@ -451,103 +458,6 @@ section {
 .productosVentas .info:hover i {
   background: #f18a6b;
   color: #fff;
-}
-
-.productosVentas .php-email-form {
-  width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-  padding: 30px;
-  background: #fff;
-}
-
-.productosVentas .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-
-.productosVentas .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.productosVentas .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.productosVentas .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.productosVentas .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-.productosVentas .php-email-form input,
-.productosVentas .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-.productosVentas .php-email-form input {
-  height: 44px;
-}
-
-.productosVentas .php-email-form textarea {
-  padding: 10px 12px;
-}
-
-.productosVentas .php-email-form button[type=submit] {
-  background: #f18a6b;
-  border: 0;
-  padding: 10px 24px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.productosVentas .php-email-form button[type=submit]:hover {
-  background: #ffa012;
-}
-
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
