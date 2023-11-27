@@ -15,6 +15,7 @@ function calcularHipotesis()
 
     // insert results
     html  += "<tr>";
+
     // for(let heading of headings)
     // {
         html  += `<td>Media muestral / Promedio (x)</td><td></td>`;
