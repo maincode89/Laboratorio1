@@ -31,6 +31,7 @@ function calcularIntervalo()
     let totalBebidas = 0;
     let totalViveres = 0;
     let valorZ = 2.33;
+    let muestra = 5;
 
     // start list results
     let html = "<table class='resultados'>";
@@ -52,7 +53,7 @@ function calcularIntervalo()
         }
     }
 
-    let promedio = (totalLacteos + totalVerduras + totalCarnes + totalBebidas + totalViveres) / 5;
+    let promedio = (totalLacteos + totalVerduras + totalCarnes + totalBebidas + totalViveres) / muestra;
 
         html  += "<td>Media muestral / Promedio</td><td>" + promedio + "</td>";
 
@@ -62,7 +63,7 @@ function calcularIntervalo()
     html  += "<tr>";
 
     let desviacionEstandarSuma = Math.pow((totalLacteos - promedio),2) + Math.pow((totalVerduras - promedio),2) + Math.pow((totalCarnes - promedio),2) + Math.pow((totalBebidas - promedio),2) + Math.pow((totalViveres - promedio),2);
-    let desviacionEstandarDivision = desviacionEstandarSuma / 4;
+    let desviacionEstandarDivision = desviacionEstandarSuma / (muestra - 1);
     let desviacionEstandarRaiz = Math.sqrt(desviacionEstandarDivision);
     
     html  +="<td>Desviación estandar muestral</td><td>" + desviacionEstandarRaiz.toFixed(4) + "</td>";
@@ -70,7 +71,7 @@ function calcularIntervalo()
     
     // insert de la muestra
     html  += "<tr>";
-    html  += `<td>N</td><td>5</td>`;
+    html  += "<td>N</td><td>" + muestra + "</td>";
     html += "</tr>";
 
     // insert Error estandar
