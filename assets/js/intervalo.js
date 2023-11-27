@@ -25,13 +25,10 @@ loadJSON(function(response) {
 
 function calcularIntervalo()
 {
-    let totalLacteos = 0;
-    let totalVerduras = 0;
-    let totalCarnes = 0;
-    let totalBebidas = 0;
-    let totalViveres = 0;
+    let totalVentas = 0;
     let valorZ = 2.33;
-    let muestra = 5;
+    let muestra = Object.keys(datos).length;
+    let desviacionEstandarSuma = 0;
 
     // start list results
     let html = "<table class='resultados'>";
@@ -40,29 +37,22 @@ function calcularIntervalo()
     html  += "<tr>";
 
     for (var i = 0; i < Object.keys(datos).length; i++) {
-        if(datos[i].Productos == 'Productos Lácteos') {
-            totalLacteos += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Verduras') {
-            totalVerduras += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Carnes') {
-            totalCarnes += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Bebidas') { 
-            totalBebidas += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Víveres') { 
-            totalViveres += datos[i].Ventas;
-        }
+            totalVentas += datos[i].Ventas;
     }
 
-    let promedio = (totalLacteos + totalVerduras + totalCarnes + totalBebidas + totalViveres) / muestra;
+    let promedio = totalVentas / muestra;
 
-        html  += "<td>Media muestral / Promedio</td><td>" + promedio + "</td>";
+        html  += "<td>Media muestral / Promedio</td><td>" + promedio.toFixed(4) + "</td>";
 
     html += "</tr>";
 
     // insert Desviación estandar muestral
     html  += "<tr>";
 
-    let desviacionEstandarSuma = Math.pow((totalLacteos - promedio),2) + Math.pow((totalVerduras - promedio),2) + Math.pow((totalCarnes - promedio),2) + Math.pow((totalBebidas - promedio),2) + Math.pow((totalViveres - promedio),2);
+    for (var i = 0; i < Object.keys(datos).length; i++) {
+        desviacionEstandarSuma += Math.pow((datos[i].Ventas - promedio),2);
+    }
+    
     let desviacionEstandarDivision = desviacionEstandarSuma / (muestra - 1);
     let desviacionEstandarRaiz = Math.sqrt(desviacionEstandarDivision);
     
@@ -77,7 +67,7 @@ function calcularIntervalo()
     // insert Error estandar
     html  += "<tr>";
 
-    let errorEstandar = desviacionEstandarRaiz / Math.sqrt(5);
+    let errorEstandar = desviacionEstandarRaiz / Math.sqrt(muestra);
     html  += "<td>Error estandar SE</td><td>" + errorEstandar.toFixed(4) + "</td>";
     html += "</tr>";
 
@@ -104,6 +94,8 @@ function calcularIntervalo()
 
     // end of table
     html += "</table>";
+
+    html += "<div class='resultadoIntervalo d-flex justify-content-center'>" + limiteInferior.toFixed(4) + " &lt; &micro; &gt; " + limiteSuperior.toFixed(4) + "</div>";
 
     // add table to the empty div
     document.getElementById("infoTable").innerHTML = html;

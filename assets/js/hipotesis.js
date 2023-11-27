@@ -25,42 +25,36 @@ loadJSON(function(response) {
 
 function calcularHipotesis()
 {
-    let totalLacteos = 0;
-    let totalVerduras = 0;
-    let totalCarnes = 0;
-    let totalBebidas = 0;
-    let totalViveres = 0;
-    let muestra = 5;
+    let totalVentas = 0;
+    let muestra = Object.keys(datos).length;
     let promedioPoblacional = 17500000;
+    let desviacionEstandarSuma = 0;
+    let significancia = 1.64;
 
     for (var i = 0; i < Object.keys(datos).length; i++) {
-        if(datos[i].Productos == 'Productos Lácteos') {
-            totalLacteos += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Verduras') {
-            totalVerduras += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Carnes') {
-            totalCarnes += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Bebidas') { 
-            totalBebidas += datos[i].Ventas;
-        } else if (datos[i].Productos == 'Víveres') { 
-            totalViveres += datos[i].Ventas;
-        }
-    }
+        totalVentas += datos[i].Ventas;
+    } 
 
-    let promedio = (totalLacteos + totalVerduras + totalCarnes + totalBebidas + totalViveres) / muestra;
+    let promedio = totalVentas / muestra;
 
     // start list results
     let html = "<table class='resultados'>";
 
     html  += "<tr>";
 
-        html  += "<td>H<sub>0</sub></td><td>" + promedioPoblacional + "</td>";
+        html  += "<td>H<sub>0</sub> &micro; &lt=</td><td>" + promedioPoblacional + "</td>";
 
     html += "</tr>";
 
     html  += "<tr>";
 
-        html  += "<td>H<sub>1</sub></td><td>" + promedioPoblacional + "</td>";
+        html  += "<td>H<sub>A</sub> &micro; &gt</td><td>" + promedioPoblacional + "</td>";
+
+    html += "</tr>";
+
+    html  += "<tr>";
+
+        html  += "<td>&alpha; = 5%</td><td> Z = " + significancia + "</td>";
 
     html += "</tr>";
 
@@ -72,7 +66,10 @@ function calcularHipotesis()
     // insert Desviación estandar muestral
     html  += "<tr>";
 
-    let desviacionEstandarSuma = Math.pow((totalLacteos - promedio),2) + Math.pow((totalVerduras - promedio),2) + Math.pow((totalCarnes - promedio),2) + Math.pow((totalBebidas - promedio),2) + Math.pow((totalViveres - promedio),2);
+    for (var i = 0; i < Object.keys(datos).length; i++) {
+        desviacionEstandarSuma += Math.pow((datos[i].Ventas - promedio),2);
+    }
+    
     let desviacionEstandarDivision = desviacionEstandarSuma / (muestra - 1);
     let desviacionEstandarRaiz = Math.sqrt(desviacionEstandarDivision);
     
@@ -84,12 +81,18 @@ function calcularHipotesis()
 
     let valorT = (promedio - promedioPoblacional) / (desviacionEstandarRaiz/Math.sqrt(muestra));
 
-        html  += "<td>Estadístico de Prueba (t)</td><td>" + valorT.toFixed(4) + "</td>";
+        html  += "<td>Z</td><td>" + valorT.toFixed(4) + "</td>";
 
     html += "</tr>";
 
     // end of table
     html += "</table>";
+
+    if(valorT.toFixed(4) <= significancia) {
+        html += "<div class='resultadoIntervalo d-flex justify-content-center'>Z &lt;= " + significancia + ". La hipotesis es acertada</div>";
+    } else {
+        html += "<div class='resultadoIntervalo d-flex justify-content-center'>Z &gt; " + significancia + ". La hipotesis no es acertada</div>";
+    }
 
     // add table to the empty div
     document.getElementById("infoTable").innerHTML = html;
